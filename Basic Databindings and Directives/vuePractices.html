@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+  		<div class="row">
+			<div id = "app" class = "col-sm-6 col-md-offset-3">
+				<h1>{{message}}</h1>
+
+				<!--Data binding with the input-->
+				<input v-model="message">
+			</div>
+		</div>
+	</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+
+	var data = {
+		message: 'Hello World'
+	}
+	
+	new Vue({
+		el: '#app',
+		data: data //Refering to the data object above
+	});
+
+</script>
+	
+
+</body>
+</html>
