@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+  		<div class="row">
+			<div id = "app" class = "col-sm-6 col-md-offset-3">
+				<form>
+					<span class = "errorMsg" v-show = "!message">
+						<h3>You must enter a message</h3>
+					</span>
+					<textarea class="form-control" rows="5" v-model="message"></textarea>
+					<button type = "submit" v-show = "message">
+						Send Message
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<script>
+
+	new Vue({
+		el: '#app',
+		data: {
+			message:''
+		}
+	});
+
+</script>
+	
+
+</body>
+</html>
