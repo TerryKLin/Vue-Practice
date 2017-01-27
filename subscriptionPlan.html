@@ -8,9 +8,6 @@
 	<div class="container">
   		<div class="row">
 			<div id = "app" class = "col-sm-6 col-md-offset-3">
-				<pre>
-					{{$data | json}}
-				</pre>
 				<div v-for = "plan in plans">
 					<!--Custome plan component that binds the plan property
 						sync property makes sure the two-way binding works as opposed to 
@@ -26,7 +23,13 @@
 		<div>
 			<span>{{plan.name}}</span>
 			<span>{{plan.price}}/year</span>
-			<button @click = "setPlan">Upgrade</button>
+			<button @click = "setPlan" v-if = "plan.name !== active.name">
+				{{determine ? 'Upgrade' : 'Downgrade' }}
+			</button>
+
+			<span v-else>
+				Current plan
+			</span>
 		</div>
 	</template>
 
@@ -55,6 +58,12 @@
 
 					//Property
 					props:['plan','active'],
+
+					computed:{
+						determine: function(){
+							return this.plan.price > this.active.price;
+						}
+					},
 				
 
 					methods:{
